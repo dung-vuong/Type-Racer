@@ -1,5 +1,5 @@
-# BEFORE RUNNING THE FRONTEND:
-## - cd backend
-## - then run backend
+# Before running Frontend:
+## - cd Backend
+## - then run Backend
 
-### `npm start` to run
+# `npm start` to run Frontend
