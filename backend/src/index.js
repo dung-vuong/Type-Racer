@@ -6,6 +6,8 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const helmet = require('helmet');
 const morgan = require('morgan');
+const {startDatabase} = require('./database/mongo');
+const {insertAd, getAds} = require('./database/ads');
 
 // defining the Express app
 const app = express();
@@ -28,11 +30,25 @@ app.use(cors());
 app.use(morgan('combined'));
 
 // defining an endpoint to return all ads
-app.get('/', (req, res) => {
-    res.send(ads);
+app.get('/', async (req, res) => {
+    res.send(await getAds());
 });
 
-// starting the server
-app.listen(3001, () => {
-    console.log('listening on port 3001');
-});
+app.post('/test', async (req, res) => {
+    res.send({ message: 'test works' });
+  });
+  
+// startDatabase().then(async () => {
+//     await insertAd({title: 'Hello, now from the in-memory database!'});
+
+//     // starting the server
+//     app.listen(3001, () => {
+//         console.log('listening on port 3001');
+//     });
+
+// });
+
+    // starting the server
+    app.listen(3001, () => {
+        console.log('listening on port 3001');
+    });
