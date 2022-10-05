@@ -2,14 +2,15 @@ import React from 'react';
 import { useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
-import { Button, Paper, Grid, Container, TextField } from '@mui/material';
+import { Button, Paper, Grid, Container, TextField, IconButton } from '@mui/material';
 import LoginIcon from '@mui/icons-material/Login';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import styles from "./LoginStyles.css";
 
 const Login = () => {
     //-------------------------------------------- MUI STYLE --------------------------------------------
     const paper = {
-        marginTop: '4em',
+        marginTop: '2.5em',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
@@ -48,50 +49,55 @@ const Login = () => {
 	};
 
 	return (
-        <Container component='main' maxWidth='xs'>
-            <Paper style={paper} elevation={3}>
-				<LoginIcon fontSize="large" color="primary"/>
-                <h1 style={{color: "#1976d2", marginBottom: "1em"}}>Login Account</h1>
-                <form onSubmit={handleSubmit}>
-                    <Grid container spacing={2}>
-                        <Grid item xs={12}>
-                            <TextField
-                                name="email"
-                                label="Email"
-                                type="text"
-                                variant="outlined"
-                                required
-                                fullWidth
-                                onChange={handleChange}
-								autoFocus
-                            />
-                        </Grid>
-                        <Grid item xs={12}>
-                            <TextField
-                                name="password"
-                                label="Password"
-                                type="text"
-                                variant="outlined"
-                                required
-                                fullWidth
-                                onChange={handleChange}
-                            />
-                        </Grid>
-                    </Grid>
-                    {error && <div className={styles.error_msg}>{error}</div>}
-                    <Button style={{marginTop: "1em"}} type='submit' variant="contained" color="primary" fullWidth>Sign In</Button>
-                </form>
-                <h3>Don't have an account?</h3>
-                <Button
-                    variant="contained"
-                    color="primary"
-                    size="small"
-                    component={Link}
-                    to='/signup'>
-                    Sign Up
-                </Button>
-            </Paper>
-        </Container>
+        <>
+			<IconButton component={Link} to='/' style={{position: 'absolute', marginLeft: '2em'}} color="primary">
+				<ArrowBackIcon fontSize="large" color="primary"/>
+			</IconButton>
+			<Container component='main' maxWidth='xs'>
+				<Paper style={paper} elevation={3}>
+					<LoginIcon fontSize="large" color="primary"/>
+					<h1 style={{color: "#1976d2", marginBottom: "1em"}}>Login Account</h1>
+					<form onSubmit={handleSubmit}>
+						<Grid container spacing={2}>
+							<Grid item xs={12}>
+								<TextField
+									name="email"
+									label="Email"
+									type="text"
+									variant="outlined"
+									required
+									fullWidth
+									onChange={handleChange}
+									autoFocus
+								/>
+							</Grid>
+							<Grid item xs={12}>
+								<TextField
+									name="password"
+									label="Password"
+									type="text"
+									variant="outlined"
+									required
+									fullWidth
+									onChange={handleChange}
+								/>
+							</Grid>
+						</Grid>
+						{error && <div className={styles.error_msg}>{error}</div>}
+						<Button style={{marginTop: "1em"}} type='submit' variant="contained" color="primary" fullWidth>Sign In</Button>
+					</form>
+					<h3 style={{marginTop: "2em"}}>Don't have an account?</h3>
+					<Button
+						variant="outlined"
+						color="primary"
+						size="small"
+						component={Link}
+						to='/signup'>
+						Sign Up Now
+					</Button>
+				</Paper>
+			</Container>
+		</>
 	);
 };
 
