@@ -10,11 +10,10 @@ import styles from "./LoginStyles.css";
 const Login = () => {
     //-------------------------------------------- MUI STYLE --------------------------------------------
     const paper = {
-        marginTop: '2.5em',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        padding: '2em',
+        padding: '1.5em',
     }   
     //-------------------------------------------- MUI STYLE --------------------------------------------
 
