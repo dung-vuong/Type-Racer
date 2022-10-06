@@ -3,5 +3,5 @@
 # npm install (to install react)
 # npm start (to start react)
 
-npm ci <-- only updates from the package-lock.json /n
+npm ci <-- only updates from the package-lock.json <br/>
 node src <-- start the backend
