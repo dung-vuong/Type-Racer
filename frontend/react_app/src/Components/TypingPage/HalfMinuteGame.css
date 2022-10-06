@@ -1,6 +1,4 @@
-.word {
-    display: inline;
-}
+
 
 .game {
     text-align: center;
@@ -8,7 +6,10 @@
 }
 
 .gameInput {
-    background-color: grey;
+    background-color: transparent;
     outline: none;
     font-size: 2em;
+    border: none;
+    caret-color: transparent;
+    cursor: default;
 }
