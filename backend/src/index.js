@@ -33,7 +33,7 @@ app.get("/", async (req, res) => {
 });
 
 app.post("/test", async (req, res) => {
-  res.send({ message: "test works" });
+  res.send({ message: ["The", "cow", "jumps", "over", "the", "moon"] });
 });
 
 // startDatabase().then(async () => {
