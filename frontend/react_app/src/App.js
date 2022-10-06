@@ -9,6 +9,16 @@ import TypingPage from './Components/TypingPage/TypingPage';
 function App() {
 	return (
 		<BrowserRouter>
+			<nav>
+                <ul>
+                    <li>TypeRacer</li>
+                    <li>Home</li>
+                    <li>Type</li>
+                    <li>About</li>
+                    <li>Login</li>
+                 </ul>
+             </nav>
+			 <hr></hr>
 			<Routes>
 				<Route path="/auth" exact element={<Authentication/>}/>
 				<Route path="/typing" exact element={<TypingPage/>}/>
