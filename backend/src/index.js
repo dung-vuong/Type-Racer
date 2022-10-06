@@ -39,7 +39,13 @@ app.get("/", async (req, res) => {
 });
 
 app.post("/test", async (req, res) => {
-  res.send({ message: "test works" });
+  // res.send({ message: "test works" });
+  res.send({ message: ["The", "cow", "jumps", "over", "the", "moon"] });
+});
+
+// defining an endpoint to return all ads
+app.get("/GetWords", async (req, res) => {
+    res.send({ body: "According to all known laws of aviation, there is no way a bee should be able to fly. It's wings are too small to get its fat little body off the ground. The bee, of course, flies anyway, because bees don't care what humans think is impossible." });
 });
 
 // startDatabase().then(async () => {
