@@ -3,24 +3,18 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import './App.css';
 
 import LandingPage from './Components/LandingPage/LandingPage';
-import Authentication from "./Components/Authentication/Authentication";
+import Login from './Components/Login/Login';
+import Signup from './Components/Signup/Signup';
 import TypingPage from './Components/TypingPage/TypingPage';
+import NavigationBar from './Components/NavigationBar/NavigationBar';
 
 function App() {
 	return (
 		<BrowserRouter>
-			<nav>
-                <ul>
-                    <li>TypeRacer</li>
-                    <li>Home</li>
-                    <li>Type</li>
-                    <li>About</li>
-                    <li>Login</li>
-                 </ul>
-             </nav>
-			 <hr></hr>
+			<NavigationBar/>
 			<Routes>
-				<Route path="/auth" exact element={<Authentication/>}/>
+				<Route path="/login" exact element={<Login/>}/>
+				<Route path="/signup" exact element={<Signup/>}/>
 				<Route path="/typing" exact element={<TypingPage/>}/>
 				<Route path="/" exact element={<LandingPage/>}/>
 			</Routes>
