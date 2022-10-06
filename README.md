@@ -4,3 +4,4 @@
 # npm start (to start react)
 
 npm ci <-- only updates from the package-lock.json
+node src <-- start the backend
