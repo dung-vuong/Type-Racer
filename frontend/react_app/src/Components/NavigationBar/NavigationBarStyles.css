@@ -7,7 +7,7 @@
 
 .mainNav {
     background: linear-gradient(90deg, rgb(5, 52, 99) 0%, rgb(5, 52, 99) 100%);
-    height: 100px;
+    height: 70px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -36,7 +36,7 @@
     display: flex;
     align-items: center;
     position:absolute;
-    top:10px; 
+    top: 3px;
     left:10px;
     width:100px;
     height:40px;
@@ -46,7 +46,7 @@
   .mainNav ul{
     margin: 0;
     position: absolute;
-    top: 30px;
+    top: 25px;
     right: 10px;
     width: 400px;
     height: 60px;
