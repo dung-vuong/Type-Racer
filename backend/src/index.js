@@ -1,42 +1,63 @@
 // ./src/index.js
 
-// importing the dependencies
+// ---------------- Import The Dependencies ---------------- \\
 const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const helmet = require("helmet");
 const morgan = require("morgan");
+
 const { startDatabase } = require("./database/mongo");
 const { insertAd, getAds } = require("./database/ads");
+const userRoutes = require('./routes/users')
+const authRoutes = require('./routes/auth')
+// ---------------- Import The Dependencies ---------------- \\
 
-mongoose.connect(
-  //password: goodgradepls
-  "mongodb+srv://proj160:goodgradepls@cluster0.3t3w9l3.mongodb.net/TyperProj?retryWrites=true&w=majority"
-);
 
-// defining the Express app
+
+
+//------------------------------------------------- CONNECT DATABASE ------------------------------------------------- \\
+try{
+	mongoose.connect(
+		//password: goodgradepls
+		"mongodb+srv://proj160:goodgradepls@cluster0.3t3w9l3.mongodb.net/TyperProj?retryWrites=true&w=majority",
+		{useNewUrlParser: true, useUnifiedTopology: true}
+	);
+	console.log("Connected to Database Successfully!")
+} catch (error) {
+	console.log(error)
+	console.log("Failed to Connect to Database!")
+}
+//------------------------------------------------- CONNECT DATABASE ------------------------------------------------- \\
+
+
+
+
+// -------------------- Define and Use -------------------- \\
 const app = express();
+app.use(helmet());
+app.use(express.json())
+app.use(bodyParser.json());
+app.use(cors());
+app.use(morgan("combined"));
+// -------------------- Define and Use -------------------- \\
+
+
+
+
+// -------------- Routes for Sign Up - Sign In -------------- \\
+app.use("/api/users", userRoutes)
+app.use("/api/auth", authRoutes)
+// -------------- Routes for Sign Up - Sign In -------------- \\
+
+
+
+
 
 // defining an array to work as the database (temporary solution)
 // const ads = [{ title: "Hello, world (again)!" }];
 
-// adding Helmet to enhance your API's security
-app.use(helmet());
-
-//middleware
-app.use(express.json())
-
-// using bodyParser to parse JSON bodies into JS objects
-app.use(bodyParser.json());
-
-// enabling CORS for all requests
-app.use(cors());
-
-// adding morgan to log HTTP requests
-app.use(morgan("combined"));
-
-// defining an endpoint to return all ads
 app.get("/", async (req, res) => {
   res.send(await getAds());
 });
@@ -61,7 +82,6 @@ app.get("/GetWords", async (req, res) => {
 
 // });
 
-// starting the server
 app.listen(3001, () => {
   console.log("listening on port 3001");
 });

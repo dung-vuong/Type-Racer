@@ -30,22 +30,22 @@ const Login = () => {
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
-		// try {
-		// 	const url = "http://localhost:8080/api/auth";
-		// 	const { data: res } = await axios.post(url, data);
-		navigate("/typing");
 		console.log(data)
-		// 	localStorage.setItem("token", res.data);
-		// 	window.location = "/";
-		// } catch (error) {
-		// 	if (
-		// 		error.response &&
-		// 		error.response.status >= 400 &&
-		// 		error.response.status <= 500
-		// 	) {
-		// 		setError(error.response.data.message);
-		// 	}
-		// }
+		try {
+			const url = "http://localhost:3001/api/auth";
+			const { data: res } = await axios.post(url, data);
+			localStorage.setItem("token", res.data);
+			// window.location = "/";
+			navigate("/typing");
+		} catch (error) {
+			if (
+				error.response &&
+				error.response.status >= 400 &&
+				error.response.status <= 500
+			) {
+				setError(error.response.data.message);
+			}
+		}
 	};
 
 	return (
@@ -75,7 +75,7 @@ const Login = () => {
 								<TextField
 									name="password"
 									label="Password"
-									type="text"
+									type="password"
 									variant="outlined"
 									required
 									fullWidth
