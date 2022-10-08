@@ -3,11 +3,20 @@ import './IntroductionStyles.css'
 
 const Introduction = ()  => {
     return (
-        <div>
-            <h1>Introduction</h1>
-            <h2> - Game Description</h2>
-            <h2> - Sign In | Log In</h2>
-        </div>
+        <html>
+            <head>
+                
+            </head>
+            <body>
+                <header>
+                    <h2>So you think you can type?</h2>
+                    <h2>Get Started!</h2>
+                </header>
+                <section>
+                    <h2>Product Description</h2>
+                </section>
+            </body>
+        </html>
     )
 }
 
