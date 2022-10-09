@@ -8,8 +8,7 @@ const LandingPage = ()  => {
     console.log(token)
     return (
         <>
-            <h1>THIS IS THE LANDING PAGE</h1>
-            <h1>This is my token {token}</h1>
+            <h5>This is my token {token}</h5>
             <Introduction/>
             <Members/>
         </>

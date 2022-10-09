@@ -39,9 +39,12 @@ const app = express();
 app.use(helmet());
 app.use(express.json())
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false })); // Parses urlencoded bodies
+app.use(bodyParser.json()); // Send JSON responses
 app.use(cors());
 app.use(morgan("combined"));
 // -------------------- Define and Use -------------------- \\
+
 
 
 

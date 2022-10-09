@@ -1,6 +1,8 @@
 const router = require("express").Router();
 const {User, validate} = require("../models/Users")
 const bcrypt = require("bcrypt")
+const auth = require("../middleware/auth");
+const validateObjectId = require("../middleware/validateObjectId");
 
 router.post("/", async (req, res) => {
     try {
@@ -19,12 +21,25 @@ router.post("/", async (req, res) => {
         const hashPassword = await bcrypt.hash(req.body.password, salt)
 
         //CREATE THE USER AFTER HASHED PASSWORD
-        await new User({...req.body, password: hashPassword}).save()
-        res.status(201).send({message: "User created successfully!"})
+        let newUser = await new User({...req.body, password: hashPassword}).save()
+        res.status(201).send({data: newUser, message: "User created successfully!"})
 
     } catch (error) {
         res.status(500).send({message: "Internal Server Error!!!"})
     }
 })
+
+//GET ALL USERS
+router.get("/", async (req, res) => {
+	const users = await User.find().select("-password -__v");
+	res.status(200).send({ data: users });
+});
+
+
+//GET USER BY ID
+router.get("/:id", [validateObjectId, auth], async (req, res) => {
+	const user = await User.findById(req.params.id).select("-password -__v");
+	res.status(200).send({ data: user });
+});
 
 module.exports = router;
