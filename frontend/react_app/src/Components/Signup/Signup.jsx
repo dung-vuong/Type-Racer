@@ -11,11 +11,10 @@ const Signup = () => {
 
     //-------------------------------------------- MUI STYLE --------------------------------------------
     const paper = {
-        marginTop: '2.5em',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        padding: '2em',
+        padding: '1.5em',
     }   
     //-------------------------------------------- MUI STYLE --------------------------------------------
 
@@ -36,20 +35,20 @@ const Signup = () => {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
         console.log(data)
-		// try {
-		// 	const url = "http://localhost:8080/api/users";
-		// 	const { data: res } = await axios.post(url, data);
-		navigate("/login");
-		// 	console.log(res.message);
-		// } catch (error) {
-		// 	if (
-		// 		error.response &&
-		// 		error.response.status >= 400 &&
-		// 		error.response.status <= 500
-		// 	) {
-		// 		setError(error.response.data.message);
-		// 	}
-		// }
+		try {
+			const url = "http://localhost:3001/api/users";
+			const { data: res } = await axios.post(url, data);
+			console.log(res.message);
+            navigate("/login");
+		} catch (error) {
+			if (
+				error.response &&
+				error.response.status >= 400 &&
+				error.response.status <= 500
+			) {
+				setError(error.response.data.message);
+			}
+		}
 	};
 
 	return (
@@ -101,7 +100,7 @@ const Signup = () => {
                                 <TextField
                                     name="password"
                                     label="Password"
-                                    type="text"
+                                    type="password"
                                     variant="outlined"
                                     required
                                     fullWidth
