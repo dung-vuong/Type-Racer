@@ -81,12 +81,12 @@ app.post("/test", async (req, res) => {
 });
 
 // defining an endpoint to return all ads
-app.get("/GetWords", async (req, res) => {
+app.get("/get-words", async (req, res) => {
     res.send({ body: "According to all known laws of aviation, there is no way a bee should be able to fly. It's wings are too small to get its fat little body off the ground. The bee, of course, flies anyway, because bees don't care what humans think is impossible." });
 });
 
 // Get a list of random words
-app.get("/RandomWords", async (req, res) => {
+app.get("/random-words", async (req, res) => {
 
   const response = await fetch('https://random-word-api.herokuapp.com/word?number=300');
   const myJson = await response.json(); //extract JSON from the http response
