@@ -1,1 +1,55 @@
 /*-----------------------------------INTRODUCTION STYLING--------------------------------------*/
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@200&family=Source+Sans+Pro:ital,wght@1,600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abyssinica+SIL&display=swap');
+
+.mainIntro{
+    text-align: center;
+}
+
+.introHeader{
+   
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: black;
+}
+
+.typeAnimation{
+    font-family: Source Sans Pro;
+    font-size: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+}
+
+.start{
+    cursor: pointer;
+}
+
+.start-container h2:hover{
+    text-decoration: underline;
+}
+
+.start-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 80px;
+    border: solid gray;
+    border-radius: 25px;
+    background-color: rgb(247, 234, 218);
+}
+
+.productIntro{
+    font-family: Abyssinica SIL;
+    font-size: large;
+    margin-left: 200px;
+    margin-right: 200px;
+    margin-top: 150px;
+}
