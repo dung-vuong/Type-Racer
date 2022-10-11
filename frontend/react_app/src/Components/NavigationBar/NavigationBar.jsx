@@ -11,9 +11,7 @@ const NavigationBar = () => {
                         <li className='nav-item'>Home</li>
                         <li className='nav-item'>Type</li>
                         <li className='nav-item nav-login'>Login</li>
-
                     </ul>
-
                 </div>
            </nav>
         </>
