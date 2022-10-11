@@ -86,7 +86,7 @@ app.get("/GetWords", async (req, res) => {
 });
 
 // Get a list of random words
-app.get("/RandomWords", async (req, res) => {
+app.get("/random-words", async (req, res) => {
 
   const response = await fetch('https://random-word-api.herokuapp.com/word?number=300');
   const myJson = await response.json(); //extract JSON from the http response
