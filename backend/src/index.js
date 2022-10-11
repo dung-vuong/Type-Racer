@@ -7,11 +7,12 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const helmet = require("helmet");
 const morgan = require("morgan");
-
 const { startDatabase } = require("./database/mongo");
 const { insertAd, getAds } = require("./database/ads");
 const userRoutes = require('./routes/users')
 const authRoutes = require('./routes/auth')
+const fetch = require('node-fetch');
+
 // ---------------- Import The Dependencies ---------------- \\
 
 
@@ -84,15 +85,13 @@ app.get("/GetWords", async (req, res) => {
     res.send({ body: "According to all known laws of aviation, there is no way a bee should be able to fly. It's wings are too small to get its fat little body off the ground. The bee, of course, flies anyway, because bees don't care what humans think is impossible." });
 });
 
-// startDatabase().then(async () => {
-//     await insertAd({title: 'Hello, now from the in-memory database!'});
+// Get a list of random words
+app.get("/RandomWords", async (req, res) => {
 
-//     // starting the server
-//     app.listen(3001, () => {
-//         console.log('listening on port 3001');
-//     });
-
-// });
+  const response = await fetch('https://random-word-api.herokuapp.com/word?number=300');
+  const myJson = await response.json(); //extract JSON from the http response
+  res.send(myJson);
+});
 
 app.listen(3001, () => {
   console.log("listening on port 3001");
