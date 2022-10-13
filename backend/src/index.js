@@ -85,12 +85,34 @@ app.get("/get-words", async (req, res) => {
     res.send({ body: "According to all known laws of aviation, there is no way a bee should be able to fly. It's wings are too small to get its fat little body off the ground. The bee, of course, flies anyway, because bees don't care what humans think is impossible." });
 });
 
-// Get a list of random words
+// Get a list of random words, defaults to 300
 app.get("/random-words", async (req, res) => {
+  var number;
 
-  const response = await fetch('https://random-word-api.herokuapp.com/word?number=300');
-  const myJson = await response.json(); //extract JSON from the http response
-  res.send(myJson);
+  //IF NUMBER FOUND
+  if(req.query.number == null){
+    number = 300;
+  }
+  else{
+    number = req.query.number;
+  }
+  let letterCount = 0;
+  var returnBody = new Object();
+  const response = await fetch('https://random-word-api.herokuapp.com/word?number=' + number);
+  //returnBody = JSON.parse(response);
+  //returnBody.push({"words" : "10"});
+  const letters = JSON.parse(number);
+
+  
+  const words = await response.json(); //extract JSON from the http response
+  console.log(words);
+  for(let i = 0; i < words.length; i++){
+    letterCount += words[i].length;
+    console.log(words[i].length);
+  }
+  let count = '{"letters":' + letterCount +'}';
+  res.send({letterCount ,words});
+
 });
 
 app.listen(3001, () => {
