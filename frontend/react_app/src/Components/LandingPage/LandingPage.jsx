@@ -4,11 +4,11 @@ import Introduction from './Introduction/Introduction'
 import Members from './Members/Members'
 
 const LandingPage = ()  => {
-	const token = localStorage.getItem('token')
-    console.log(token)
+	const user = localStorage.getItem('data')
+    console.log(user)
     return (
         <>
-            <h5>This is my token {token}</h5>
+            <h5>This is my user {user}</h5>
             <Introduction/>
             <Members/>
         </>

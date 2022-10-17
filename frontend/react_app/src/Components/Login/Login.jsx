@@ -5,7 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { Button, Paper, Grid, Container, TextField, IconButton } from '@mui/material';
 import LoginIcon from '@mui/icons-material/Login';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import styles from "./LoginStyles.css";
+import "./LoginStyles.css";
 
 const Login = () => {
     //-------------------------------------------- MUI STYLE --------------------------------------------
@@ -14,6 +14,7 @@ const Login = () => {
         flexDirection: 'column',
         alignItems: 'center',
         padding: '1.5em',
+        marginTop: '2.5em'
     }   
     //-------------------------------------------- MUI STYLE --------------------------------------------
 
@@ -30,12 +31,10 @@ const Login = () => {
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
-		console.log(data)
 		try {
 			const url = "http://localhost:3001/api/auth";
 			const { data: res } = await axios.post(url, data);
-			localStorage.setItem("token", res.data);
-			// window.location = "/";
+			localStorage.setItem("data", JSON.stringify(res));
 			navigate("/typing");
 		} catch (error) {
 			if (
@@ -83,7 +82,7 @@ const Login = () => {
 								/>
 							</Grid>
 						</Grid>
-						{error && <div className={styles.error_msg}>{error}</div>}
+						{error && <div className="error_msg">{error}</div>}
 						<Button style={{marginTop: "1em"}} type='submit' variant="contained" color="primary" fullWidth>Sign In</Button>
 					</form>
 					<h3 style={{marginTop: "2em"}}>Don't have an account?</h3>

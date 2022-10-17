@@ -15,7 +15,7 @@ function App() {
 			<Routes>
 				<Route path="/login" exact element={<Login/>}/>
 				<Route path="/signup" exact element={<Signup/>}/>
-				<Route path="/typing" exact element={<TypingPage/>}/>
+				{/* <Route path="/typing" exact element={<TypingPage/>}/> */}
 				<Route path="/" exact element={<LandingPage/>}/>
 			</Routes>
 		</BrowserRouter>
