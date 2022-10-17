@@ -7,12 +7,12 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const helmet = require("helmet");
 const morgan = require("morgan");
-const cookieParser = require('cookie-parser');
-
 const { startDatabase } = require("./database/mongo");
 const { insertAd, getAds } = require("./database/ads");
 const userRoutes = require('./routes/users')
 const authRoutes = require('./routes/auth')
+const fetch = require('node-fetch');
+
 // ---------------- Import The Dependencies ---------------- \\
 
 
@@ -73,19 +73,39 @@ app.post("/test", async (req, res) => {
 });
 
 // defining an endpoint to return all ads
-app.get("/GetWords", async (req, res) => {
+app.get("/get-words", async (req, res) => {
     res.send({ body: "According to all known laws of aviation, there is no way a bee should be able to fly. It's wings are too small to get its fat little body off the ground. The bee, of course, flies anyway, because bees don't care what humans think is impossible." });
 });
 
-// startDatabase().then(async () => {
-//     await insertAd({title: 'Hello, now from the in-memory database!'});
+// Get a list of random words, defaults to 300
+app.get("/random-words", async (req, res) => {
+  var number;
 
-//     // starting the server
-//     app.listen(3001, () => {
-//         console.log('listening on port 3001');
-//     });
+  //IF NUMBER FOUND
+  if(req.query.number == null){
+    number = 300;
+  }
+  else{
+    number = req.query.number;
+  }
+  let letterCount = 0;
+  var returnBody = new Object();
+  const response = await fetch('https://random-word-api.herokuapp.com/word?number=' + number);
+  //returnBody = JSON.parse(response);
+  //returnBody.push({"words" : "10"});
+  const letters = JSON.parse(number);
 
-// });
+  
+  const words = await response.json(); //extract JSON from the http response
+  console.log(words);
+  for(let i = 0; i < words.length; i++){
+    letterCount += words[i].length;
+    console.log(words[i].length);
+  }
+  let count = '{"letters":' + letterCount +'}';
+  res.send({letterCount ,words});
+
+});
 
 app.listen(3001, () => {
   console.log("listening on port 3001");
