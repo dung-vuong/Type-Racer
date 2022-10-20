@@ -29,7 +29,7 @@
     color: #fff;
     justify-self: start;
     margin-left: 20px;
-    margin-top: 15px;
+    margin-top: 20px;
     cursor: pointer;
     text-decoration: none;
     font-size: 1.2rem;
@@ -39,27 +39,21 @@
     top: 3px;
     left:10px;
     width:100px;
-    height:40px;
     overflow:hidden;
   }
 
   .mainNav ul{
     margin: 0;
     position: absolute;
-    top: 25px;
+    top: 18px;
     right: 10px;
-    width: 400px;
     height: 60px;
     overflow:hidden;
  }
 
  .mainNav li{
-    padding: 0 10%;
+    padding: 0 1em;
  }
-
- .mainNav li:hover{
-    text-decoration: underline;
-  }
 
   .mainNav ul li{
     display:inline-block;
@@ -71,6 +65,10 @@
     color: aliceblue;
   }
 
+  .nav-item:hover{
+    text-decoration: underline;
+  }
   .nav-login{
     border-left: 1px solid white;
+    margin-left: 1em;
   }

@@ -9,9 +9,12 @@ import TypingPage from './Components/TypingPage/TypingPage';
 import NavigationBar from './Components/NavigationBar/NavigationBar';
 
 function App() {
+    const user = JSON.parse(localStorage.getItem('data'))
+    console.log(user)
+
 	return (
 		<BrowserRouter>
-			<NavigationBar/>
+			<NavigationBar user={user}/>
 			<Routes>
 				<Route path="/login" exact element={<Login/>}/>
 				<Route path="/signup" exact element={<Signup/>}/>
