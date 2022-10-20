@@ -1,10 +1,10 @@
 import React from 'react'
-import './LeaderBoard.css'
+import './Leaderboard.css'
 
-const LeaderBoard = () => {
+const Leaderboard = () => {
     return (
-        <div>LeaderBoard</div>
+        <div>Leaderboard</div>
     )
 }
 
-export default LeaderBoard
+export default Leaderboard
