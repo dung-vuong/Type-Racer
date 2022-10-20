@@ -1,11 +1,10 @@
 import React from 'react';
 import { useState } from "react";
 import axios from "axios";
-import { Button, Paper, Grid, Container, TextField, IconButton } from '@mui/material';
+import { Button, Paper, Grid, Container, TextField } from '@mui/material';
 import { Link, useNavigate } from "react-router-dom";
 import "./SignupStyles.css";
 import SensorOccupiedIcon from '@mui/icons-material/SensorOccupied';
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 const Signup = () => {
 
@@ -54,9 +53,6 @@ const Signup = () => {
 
 	return (
         <>
-            <IconButton component={Link} to='/' style={{position: 'absolute', marginLeft: '2em'}} color="primary">
-                <ArrowBackIcon fontSize="large" color="primary"/>
-            </IconButton>
             <Container component='main' maxWidth='xs'>
                 <Paper style={paper} elevation={3}>
                     <SensorOccupiedIcon fontSize="large" color="primary"/>

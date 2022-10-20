@@ -1,6 +1,7 @@
 import React from 'react'
 import './IntroductionStyles.css'
 import {TypeAnimation} from 'react-type-animation'
+import { Link } from "react-router-dom";
 
 const Introduction = ()  => {
     return (
@@ -23,9 +24,11 @@ const Introduction = ()  => {
                         </p> 
                     </div>
                 </header>
-                <div className='start-container'>
-                    <h2 className='start'>Get Started</h2>
-                </div>
+                <Link to='/typing' style={{textDecoration: 'none'}}>
+                    <div className='start-container'>
+                        <h2 className='start'>Get Started</h2>
+                    </div>
+                </Link>
                 <div>
                     <p className='productIntro'>TyreRacer is a customizable typing test, 
                         featuring various typing modes and abilities 
