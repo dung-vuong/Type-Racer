@@ -17,22 +17,21 @@
 
 .typeAnimation{
     font-family: Source Sans Pro;
-    font-size: 2em;
+    font-size: 3em;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 200px;
+    margin-top: 60px;
 }
 
 .start{
     cursor: pointer;
 }
 
-.start-container h2:hover{
-    text-decoration: underline;
-}
-
 .start-container{
+    padding-left: 3em;
+    padding-right: 3em;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -40,15 +39,20 @@
     height: 100px;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 80px;
+    margin-top: 50px;
     border: solid gray;
     border-radius: 25px;
     background-color: rgb(247, 234, 218);
 }
 
+.start-container:hover{
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+    cursor: pointer;
+}
+
 .productIntro{
     font-family: Abyssinica SIL;
-    font-size: large;
+    font-size: x-large;
     margin-left: 200px;
     margin-right: 200px;
     margin-top: 100px;
