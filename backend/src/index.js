@@ -75,7 +75,7 @@ app.get("/", async (req, res) => {
   res.send(await getAds());
 });
 
-app.post("/test", async (req, res) => {
+app.get("/test", async (req, res) => {
   // res.send({ message: "test works" });
   res.send({ message: ["The", "cow", "jumps", "over", "the", "moon"] });
 });
