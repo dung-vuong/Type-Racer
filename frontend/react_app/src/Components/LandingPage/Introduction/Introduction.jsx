@@ -24,7 +24,7 @@ const Introduction = ()  => {
                     </div>
                 </header>
                 <div className='start-container'>
-                    <h2 className='start'>Get Started.</h2>
+                    <h2 className='start'>Get Started</h2>
                 </div>
                 <div>
                     <p className='productIntro'>TyreRacer is a customizable typing test, 
