@@ -39,7 +39,6 @@ try{
 const app = express();
 app.use(helmet());
 app.use(express.json())
-app.use(cookieParser())
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false })); // Parses urlencoded bodies
 app.use(bodyParser.json()); // Send JSON responses

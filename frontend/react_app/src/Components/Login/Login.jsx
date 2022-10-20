@@ -36,6 +36,7 @@ const Login = () => {
 			const { data: res } = await axios.post(url, data);
 			localStorage.setItem("data", JSON.stringify(res));
 			navigate("/typing");
+			window.location.reload()
 		} catch (error) {
 			if (
 				error.response &&
