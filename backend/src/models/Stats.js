@@ -3,9 +3,17 @@ const mongoose = require("mongoose");
 const StatsSchema = new mongoose.Schema({
   percentError: {
     type: double,
-    required: false,
+    required: true,
   },
   wordsPerMinute: {
+    type: int,
+    required: true,
+  },
+  timeToComplete: {
+    type: double,
+    required: false,
+  },
+  wordsTyped: {
     type: int,
     required: false,
   },
@@ -13,9 +21,9 @@ const StatsSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId, // the user that this stats belongs to
     required: true,
   },
-  gameMode_id: {
+  gamemode_id: {
     type: mongoose.Schema.Types.ObjectId, // the gamemode that this  stats belongs to
-    ref: "Gamemode",
+    ref: "gamemodeModel",
     required: true,
   },
 });

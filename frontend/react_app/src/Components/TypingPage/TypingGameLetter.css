@@ -5,3 +5,9 @@
 .incorrect {
     color: red;
 }
+
+.default-active {
+    text-decoration: underline;
+    text-decoration-thickness: 0.15rem;
+    font-weight: bold;
+}

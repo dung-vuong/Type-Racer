@@ -1,12 +1,11 @@
-
-
 .game {
     text-align: center;
-    margin-top: 25%;
+    margin-top: 15%;
 }
 
 .gameInput {
     background-color: transparent;
+    position: absolute;
     outline: none;
     font-size: 2em;
     border: none;

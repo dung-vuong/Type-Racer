@@ -1,26 +1,22 @@
 import React from 'react';
-import HalfMinuteGame from './HalfMinuteGame';
+import TimeGame from './TimeGame';
 import { useState } from 'react';
-
-//temporary subsitute for getting the words that will be retreived from api for the game
-const words = ['I', 'like', 'to', 'eat', 'pie'];
+import ChooseGame from './ChooseGame';
 
 const TypingPage = ()  => {
+    const [gameWords, setGameWords] = useState([]);
+    const [gameLetters, setGameLetters] = useState(0);
+    const [gameTime, setGameTime] = useState(0);
 
-    const [whyCantThisWork, setWhyCantThisWork] = useState(words)
-
-    const tempAPI = async () => {
-        const temp = await fetch('http://localhost:3001/test', {
-            method: 'POST',
-        })
-        const tempTwo = await temp.json();
-        return tempTwo['message']
-    }
-
-    tempAPI().then((response) => setWhyCantThisWork(response))
-    
     return (
-        <HalfMinuteGame words={whyCantThisWork}/>
+        <div className='typing-display'>
+            <ChooseGame 
+                setGameWords={setGameWords}
+                setGameLetters={setGameLetters}
+                setGameTime={setGameTime}
+            />
+            <TimeGame words={gameWords} numLetters={gameLetters} time={gameTime}/>
+        </div>
     )
 }
 

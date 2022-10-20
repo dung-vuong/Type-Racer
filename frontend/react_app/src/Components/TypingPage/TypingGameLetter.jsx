@@ -1,5 +1,4 @@
 import React from "react";
-import { useState, useEffect } from "react";
 import './TypingGameLetter.css'
 
 const TypingGameLetter = (props) => {
