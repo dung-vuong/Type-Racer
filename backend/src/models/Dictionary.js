@@ -9,6 +9,10 @@ const DictionarySchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  dictionaryName: {
+    type: String,
+    required: true,
+  },
   createdBy: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "User",
@@ -16,4 +20,7 @@ const DictionarySchema = new mongoose.Schema({
   },
 });
 
-module.exports = mongoose.model("dictionary", DictionarySchema);
+//module.exports = mongoose.model("dictionary", DictionarySchema);
+
+const dictionaryModel = mongoose.model("dictionary", DictionarySchema);
+module.exports = dictionaryModel;

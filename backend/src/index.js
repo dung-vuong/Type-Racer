@@ -59,15 +59,6 @@ app.use("/api/auth", authRoutes)
 
 
 
-//------------------------------------------------- COOKIES MANAGEMENT ------------------------------------------------- \\
-
-//------------------------------------------------- COOKIES MANAGEMENT ------------------------------------------------- \\
-
-
-
-
-
-
 // defining an array to work as the database (temporary solution)
 // const ads = [{ title: "Hello, world (again)!" }];
 

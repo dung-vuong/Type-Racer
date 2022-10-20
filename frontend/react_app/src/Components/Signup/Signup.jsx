@@ -3,7 +3,7 @@ import { useState } from "react";
 import axios from "axios";
 import { Button, Paper, Grid, Container, TextField, IconButton } from '@mui/material';
 import { Link, useNavigate } from "react-router-dom";
-import styles from "./SignupStyles.css";
+import "./SignupStyles.css";
 import SensorOccupiedIcon from '@mui/icons-material/SensorOccupied';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
@@ -15,6 +15,7 @@ const Signup = () => {
         flexDirection: 'column',
         alignItems: 'center',
         padding: '1.5em',
+        marginTop: '2.5em'
     }   
     //-------------------------------------------- MUI STYLE --------------------------------------------
 
@@ -62,7 +63,7 @@ const Signup = () => {
                     <h1 style={{color: "#1976d2", marginBottom: "1em"}}>Create Account</h1>
                     <form onSubmit={handleSubmit}>
                         <Grid container spacing={2}>
-                            <Grid item xs={12}>
+                            <Grid item xs={6}>
                                 <TextField
                                     name="firstName"
                                     label="First Name"
@@ -74,7 +75,7 @@ const Signup = () => {
                                     autoFocus
                                 />
                             </Grid>
-                            <Grid item xs={12}>
+                            <Grid item xs={6}>
                                 <TextField
                                     name="lastName"
                                     label="Last Name"
@@ -108,7 +109,7 @@ const Signup = () => {
                                 />
                             </Grid>
                         </Grid>
-                        {error && <div className={styles.error_msg}>{error}</div>}
+                        {error && <div className="error_msg">{error}</div>}
                         <Button style={{marginTop: "1em"}} type='submit' variant="contained" color="primary" fullWidth>Sign Up</Button>
                     </form>
                     <h3 style={{marginTop: "2em"}}>Already have an account?</h3>

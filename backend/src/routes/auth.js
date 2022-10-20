@@ -8,23 +8,23 @@ router.post("/", async(req,res) => {
         //IF ERROR, SEND ERROR MESSAGE
         const {error} = validate(req.body)
         if (error)
-            return res.status(400).send({message: error.details[0].message})
+            return res.status(400).json({message: error.details[0].message})
 
         //IF USER IS NOT FOUND, SEND ERROR MESSAGE
         const user = await User.findOne({email: req.body.email})
         if (!user)
-            return res.status(401).send({message: "Invalid Email or Password!"})
+            return res.status(401).json({message: "Invalid Email or Password!"})
 
         //IF PASSWORD IS NOT MATCH, SEND ERROR MESSAGE
         const validPassword = await bcrypt.compare(req.body.password, user.password)
         if (!validPassword)
-            return res.status(401).send({message: "Invalid Email or Password!"})
+            return res.status(401).json({message: "Invalid Email or Password!"})
 
         const token = user.generateAuthToken()
-        res.status(200).send({data: token, message: "Logged in successfully!"})
+        res.status(200).json({data: user, token})
 
     } catch (error) {
-        res.status(500).send({message: "Internal Server Error!!!"})
+        res.status(500).json({message: "Internal Server Error!!!"})
     }
 
 })
