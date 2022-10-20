@@ -19,10 +19,11 @@ const NavigationBar = ({user}) => {
         <>
            <nav className="mainNav">
                 <div className='container'>
-                    <h2 className='nav-logo'>TypeRacer</h2>
+                    <Link to='/'><h2 className='nav-logo'>TypeRacer</h2></Link>
                     <ul>
-                        <li className='nav-item'>Home</li>
-                        <li className='nav-item'>Type</li>
+                        <Link to='/'><li className='nav-item'>Home</li></Link>
+                        <Link to='/typing'><li className='nav-item'>Type</li></Link>
+                        <Link to='/leaderboard'><li className='nav-item'>Leaderboard</li></Link>
                         <li className='nav-login'>
                             {user 
                                 ? 

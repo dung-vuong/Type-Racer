@@ -7,6 +7,7 @@ import Login from './Components/Login/Login';
 import Signup from './Components/Signup/Signup';
 import TypingPage from './Components/TypingPage/TypingPage';
 import NavigationBar from './Components/NavigationBar/NavigationBar';
+import LeaderBoard from './Components/LeaderBoard/LeaderBoard';
 
 function App() {
     const user = JSON.parse(localStorage.getItem('data'))
@@ -18,7 +19,8 @@ function App() {
 			<Routes>
 				<Route path="/login" exact element={<Login/>}/>
 				<Route path="/signup" exact element={<Signup/>}/>
-				<Route path="/typing" exact element={<TypingPage/>}/>
+				{/* <Route path="/typing" exact element={<TypingPage/>}/> */}
+				<Route path="/leaderboard" exact element={<LeaderBoard/>}/>
 				<Route path="/" exact element={<LandingPage/>}/>
 			</Routes>
 		</BrowserRouter>
