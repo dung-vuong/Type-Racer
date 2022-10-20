@@ -47,32 +47,22 @@
     position: absolute;
     top: 18px;
     right: 10px;
-<<<<<<< HEAD
-    width: 450px;
-=======
->>>>>>> ab5d7f9377d9b5560fa6c7d0ddce77609b21a82a
     height: 60px;
     overflow:hidden;
  }
 
  .mainNav li{
-<<<<<<< HEAD
-    padding: 0 3%;
-=======
     padding: 0 1em;
->>>>>>> ab5d7f9377d9b5560fa6c7d0ddce77609b21a82a
  }
 
   .mainNav ul li{
-    display:inline;
+    display:inline-block;
   }
   
   .nav-item{
     font-size: 1.2rem;
     cursor: pointer;   
     color: aliceblue;
-    margin: 10px;
-    margin-left: 10px;
   }
 
   .nav-item:hover{

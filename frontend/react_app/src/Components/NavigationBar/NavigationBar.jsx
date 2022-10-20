@@ -23,7 +23,38 @@ const NavigationBar = ({user}) => {
                     <ul>
                         <li className='nav-item'>Home</li>
                         <li className='nav-item'>Type</li>
-                       
+                        <li className='nav-login'>
+                            {user 
+                                ? 
+                                <Button
+                                    style={{margin: "0 1em 0 1em", color: "aliceblue", borderColor: "aliceblue"}}
+                                    variant="outlined"
+                                    color="primary"
+                                    onClick={logout}>
+                                    <LogoutIcon fontSize="small"/> &nbsp; Log Out
+                                </Button>
+                            
+                                :
+                                <>
+                                    <Button
+                                        style={{margin: "0 1em 0 1em", color: "aliceblue", borderColor: "aliceblue"}}
+                                        variant="outlined"
+                                        color="primary"
+                                        component={Link}
+                                        to='/login'>
+                                        <SensorOccupiedIcon fontSize="small"/> &nbsp; Sign In
+                                    </Button>
+                                    <Button
+                                        style={{color: "aliceblue", borderColor: "aliceblue"}}
+                                        variant="outlined"
+                                        color="primary"
+                                        component={Link}
+                                        to='/signup'>
+                                        <LoginIcon fontSize="small"/> &nbsp; Sign Up
+                                    </Button>
+                                </>
+                            }
+                        </li>
                     </ul>
                 </div>
            </nav>
