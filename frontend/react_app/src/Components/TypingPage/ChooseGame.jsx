@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { Button, Select, MenuItem, FormControl, InputLabel } from '@mui/material';
+import { Select, MenuItem, FormControl, InputLabel } from '@mui/material';
 import "./ChooseGame.css"
-import { PromiseProvider } from 'mongoose';
-
 
 const ChooseGame = (props) => {
     const [timeMode, setTimeMode] = useState("");
@@ -18,7 +16,7 @@ const ChooseGame = (props) => {
     }
 
     const getNumberWords = () => {
-        if(timeMode != ""){
+        if(timeMode !== ""){
             switch(timeMode){
                 case(30):
                     return 125;
@@ -26,6 +24,8 @@ const ChooseGame = (props) => {
                     return 250;
                 case(120):
                     return 450;
+                default:
+                    return 0;
             }
         }
         else{
@@ -46,6 +46,7 @@ const ChooseGame = (props) => {
 
     useEffect(() => {
         requestWords();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [timeMode, wordMode])
 
     return(

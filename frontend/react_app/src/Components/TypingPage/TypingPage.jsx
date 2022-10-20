@@ -1,6 +1,6 @@
 import React from 'react';
 import TimeGame from './TimeGame';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import ChooseGame from './ChooseGame';
 
 const TypingPage = ()  => {
