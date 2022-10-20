@@ -1,7 +1,20 @@
 import React from 'react'
 import "./NavigationBarStyles.css";
+import { Button } from '@mui/material';
+import { Link, useNavigate } from "react-router-dom";
+import SensorOccupiedIcon from '@mui/icons-material/SensorOccupied';
+import LoginIcon from '@mui/icons-material/Login';
+import LogoutIcon from '@mui/icons-material/Logout';
 
-const NavigationBar = () => {
+const NavigationBar = ({user}) => {
+	const navigate = useNavigate();
+    const logout = () =>{
+        localStorage.clear()
+        // setUser(null)
+        navigate("/");
+        window.location.reload()
+    }
+
     return (
         <>
            <nav className="mainNav">
@@ -10,8 +23,7 @@ const NavigationBar = () => {
                     <ul>
                         <li className='nav-item'>Home</li>
                         <li className='nav-item'>Type</li>
-                        <li className='nav-item nav-login'>Sign Up</li>
-                        <li className='nav-item'>Sign In</li>
+                       
                     </ul>
                 </div>
            </nav>

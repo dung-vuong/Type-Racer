@@ -29,7 +29,7 @@
     color: #fff;
     justify-self: start;
     margin-left: 20px;
-    margin-top: 15px;
+    margin-top: 20px;
     cursor: pointer;
     text-decoration: none;
     font-size: 1.2rem;
@@ -39,27 +39,29 @@
     top: 3px;
     left:10px;
     width:100px;
-    height:40px;
     overflow:hidden;
   }
 
   .mainNav ul{
     margin: 0;
     position: absolute;
-    top: 25px;
+    top: 18px;
     right: 10px;
+<<<<<<< HEAD
     width: 450px;
+=======
+>>>>>>> ab5d7f9377d9b5560fa6c7d0ddce77609b21a82a
     height: 60px;
     overflow:hidden;
  }
 
  .mainNav li{
+<<<<<<< HEAD
     padding: 0 3%;
+=======
+    padding: 0 1em;
+>>>>>>> ab5d7f9377d9b5560fa6c7d0ddce77609b21a82a
  }
-
- .mainNav li:hover{
-    text-decoration: underline;
-  }
 
   .mainNav ul li{
     display:inline;
@@ -73,6 +75,10 @@
     margin-left: 10px;
   }
 
+  .nav-item:hover{
+    text-decoration: underline;
+  }
   .nav-login{
     border-left: 1px solid white;
+    margin-left: 1em;
   }
