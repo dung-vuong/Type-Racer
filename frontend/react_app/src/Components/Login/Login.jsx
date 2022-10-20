@@ -2,9 +2,8 @@ import React from 'react';
 import { useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
-import { Button, Paper, Grid, Container, TextField, IconButton } from '@mui/material';
+import { Button, Paper, Grid, Container, TextField } from '@mui/material';
 import LoginIcon from '@mui/icons-material/Login';
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import "./LoginStyles.css";
 
 const Login = () => {
@@ -50,9 +49,6 @@ const Login = () => {
 
 	return (
         <>
-			<IconButton component={Link} to='/' style={{position: 'absolute', marginLeft: '2em'}} color="primary">
-				<ArrowBackIcon fontSize="large" color="primary"/>
-			</IconButton>
 			<Container component='main' maxWidth='xs'>
 				<Paper style={paper} elevation={3}>
 					<LoginIcon fontSize="large" color="primary"/>
