@@ -5,11 +5,11 @@ const DictionarySchema = new mongoose.Schema({
     type: int,
     required: true,
   },
-  allWords: {
+  dictionaryName: {
     type: String,
     required: true,
   },
-  dictionaryName: {
+  allWords: {
     type: String,
     required: true,
   },
