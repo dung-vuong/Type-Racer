@@ -78,7 +78,25 @@ app.post("/createStat", async (req, res) => {
   //res.json(stat);
 });
 
-
+app.put("/updateStat", async(req, res) => {
+  const newPercentError = req.body.percentError;
+  const newWordsPerMinute = req.body.wordsPerMinute;
+  const newTimeToComplete = req.body.timeToComplete;
+  const newWordsTyped = req.body.wordsTyped;
+  const _id = req.body._id;
+  try{
+    statsModel.findById(_id, (error, statToUpdate) => {
+      statToUpdate.percentError = newPercentError;
+      statToUpdate.wordsPerMinute = newWordsPerMinute;
+      statToUpdate.timeToComplete = newTimeToComplete;
+      statToUpdate.wordsTyped = newWordsTyped;
+      statToUpdate.save();
+    });
+  } catch(err) {
+    console.log(err);
+  }
+  res.send("updated stat");
+});
 
 
 
