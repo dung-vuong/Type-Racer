@@ -11,6 +11,7 @@ const { startDatabase } = require("./database/mongo");
 const { insertAd, getAds } = require("./database/ads");
 const userRoutes = require('./routes/users')
 const authRoutes = require('./routes/auth')
+const statsRoutes = require('./routes/stats')
 const fetch = require('node-fetch');
 
 // ---------------- Import The Dependencies ---------------- \\
@@ -54,6 +55,28 @@ app.use(morgan("combined"));
 app.use("/api/users", userRoutes)
 app.use("/api/auth", authRoutes)
 // -------------- Routes for Sign Up - Sign In -------------- \\
+
+
+// -------------- Routes for Stats -------------- \\
+//app.use("/api/stats", statsRoutes)
+const statsModel = require('./models/Stats');
+app.get("/getStats", async (req, res) => {
+    statsModel.find({}, (err, result) => {
+        if(err){
+            res.json(err);
+        } else {
+            res.json(result);
+        }
+    });
+});
+
+app.post("/createStat", async (req, res) => {
+  const stat = req.body;
+  const newStat = new statsModel(stat);
+  await newStat.save();
+  res.json(newStat);
+  //res.json(stat);
+});
 
 
 

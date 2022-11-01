@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const DictionarySchema = new mongoose.Schema({
   numWords: {
-    type: int,
+    type: Number,
     required: true,
   },
   dictionaryName: {
