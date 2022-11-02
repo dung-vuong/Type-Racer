@@ -11,6 +11,8 @@ const { startDatabase } = require("./database/mongo");
 const { insertAd, getAds } = require("./database/ads");
 const userRoutes = require('./routes/users')
 const authRoutes = require('./routes/auth')
+const leaderRoutes = require('./routes/leaderboard')
+const dictionaryRoutes = require('./routes/dictionary')
 const statsRoutes = require('./routes/stats')
 const fetch = require('node-fetch');
 
@@ -55,6 +57,14 @@ app.use(morgan("combined"));
 app.use("/api/users", userRoutes)
 app.use("/api/auth", authRoutes)
 // -------------- Routes for Sign Up - Sign In -------------- \\
+
+
+// -------------- Routes for Leaderboard -------------- \\
+app.use("/api/leaderboard", leaderRoutes)
+
+
+// -------------- Routes for Dictionary -------------- \\
+app.use("/api/dictionary", dictionaryRoutes)
 
 
 // -------------- Routes for Stats -------------- \\
@@ -143,9 +153,10 @@ app.get("/random-words", async (req, res) => {
     console.log(words[i].length);
   }
   let count = '{"letters":' + letterCount +'}';
-  res.send({letterCount ,words});
+  res.send({letterCount, words});
 
 });
+
 
 app.listen(3001, () => {
   console.log("listening on port 3001");
