@@ -31,21 +31,20 @@ router.get("/getDictionaryWords", async(req,res) => {
             console.log(err);
         }
         else{
-            let result = []; // result of find function
+            let words = []; // words result of find function
 
             //console.log(docs);
             //console.log(docs[0].allWords);
             const wordsList = docs[0].allWords;
-            console.log(wordsList);
-
+            //console.log(wordsList);
+            var letterCount = 0;
             for(let i = 0; i < wordCount; i++){
                 var index = Math.round(Math.random() * (wordsList.length-1));
-                console.log(index);
-                result.push(wordsList[index]);
+                letterCount += wordsList[index].length;
+                words.push(wordsList[index]);
             }
 
-            res.send(result);
-
+            res.send({letterCount, words});
         }
     });
 
