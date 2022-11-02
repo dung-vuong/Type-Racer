@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useMemo } from 'react';
 import { Select, MenuItem, FormControl, InputLabel, FormControlLabel, RadioGroup, Radio, FormLabel } from '@mui/material';
 import "./ChooseGame.css"
 
@@ -6,11 +6,22 @@ const ChooseGame = (props) => {
     const [timeMode, setTimeMode] = useState("");
     const [wordMode, setWordMode] = useState("");
     const [wordSource, setWordSource] = useState("random");
+    const [customListName, setCustomListName] = useState("");
+    const [customListItems, setCustomListItems] = useState([]);
 
     const requestWords = async () => {
-        let query = "?number=";
+        let query = ""
+        let url = ""
+        if(wordSource === "random" || customListName === "" || props.user == null){
+            query = "?number=";
+            url = 'http://localhost:3001/random-words';
+        }
+        else{
+            query = "?dictionaryName=" + customListName + "&wordCount=";
+            url = 'http://localhost:3001/api/dictionary/getDictionaryWords';
+        }
         query += getNumberWords();
-        const response = await fetch('http://localhost:3001/random-words' + query);
+        const response = await fetch(url + query);
         const data = await response.json();
         props.setGameWords(data['words']);
         props.setGameLetters(data['letterCount'] + data['words'].length);
@@ -52,32 +63,86 @@ const ChooseGame = (props) => {
         setWordMode(event.target.value);
     };
 
+    const getUserCustoms = async () => {
+        if(props.user == null)
+            return;
+        let query = "?userID=" + props.user.data["_id"];
+        let url = "http://localhost:3001/api/dictionary/getDictionariesFromUser"
+        const response = await fetch(url + query);
+        const data = await response.json();
+        setCustomListItems(data);
+        
+    };
+
     const handleSourceChange = (event) => {
         if(props.isGameActive)
             return;
         setWordSource(event.target.value);
         if(event.target.value === "random"){
             props.setStatsAllowed(true)
+            return;
+        }
+        props.setStatsAllowed(false);
+        if(event.target.value === "select"){
+            getUserCustoms();
         }
         else{
-            props.setStatsAllowed(false);
+            //something maybe
         }
     };
+
+    const uploadCustomList = async (list, name) => {
+        let url = "http://localhost:3001/api/dictionary/uploadDictionary"
+        const listdata = {
+            "numWords": list.length,
+            "dictionaryName": name,
+            "allWords": list,
+            "createdBy": props.user.data["_id"]
+        };
+        await fetch(url, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(listdata),
+        });
+    }
 
     const handleFileInput = (event) => {
         const file = event.target.files[0];
         let fr = new FileReader();
+        const listWords = [];
+        const fileName = file["name"].split(".")[0]
+        setCustomListName(fileName);
         fr.onloadend = () => {
             const res = fr.result;
-            if(file["name"].split(".").pop() === "txt"){
-                console.log(res);
-            }
-            else{
-                console.log("csv do something")
-            }
+            const lines = res.split("\r\n");
+            lines.forEach((line) =>{
+                let words = line.split(/[, ]+/);
+                words.forEach((word) => {
+                    if(word !== "")
+                        listWords.push(word)
+                })
+            })
+            uploadCustomList(listWords, fileName);
         };
         fr.readAsText(file);
     };
+
+    const handleSelectCustomChange = (event) => {
+        if(props.isGameActive)
+            return;
+        setCustomListName(event.target.value);
+    };
+
+    const customMenuItems = useMemo(() => {
+        const menuList = [];
+        customListItems.forEach((item) => {
+            const menuItem = <MenuItem value={item}>{item}</MenuItem>
+            menuList.push(menuItem);
+        });
+        return menuList;
+    }, [customListItems]);
 
     useEffect(() => {
         if(timeMode === "" && wordMode === "")
@@ -136,13 +201,29 @@ const ChooseGame = (props) => {
                     row
                 >
                     <FormControlLabel value="random" control={<Radio size="small"/>} label="Random" />
-                    <FormControlLabel value="upload" control={<Radio size="small"/>} label="Custom Upload" />
+                    <FormControlLabel value="upload" control={<Radio size="small"/>} label="Upload Custom" />
                     <FormControlLabel value="select" control={<Radio size="small"/>} label="Select Custom" />
                 </RadioGroup>
             </FormControl>
             </div>
-            {(wordSource === "upload" &&
+            {(wordSource === "upload" && props.user != null &&
                 <input type="file" accept=".txt,.csv" onChange={handleFileInput}/>
+            )}
+            {(wordSource === "select" && props.user != null &&
+                <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
+                    <InputLabel id="select-customs-label">Your Customs</InputLabel>
+                    <Select
+                        labelId="select-customs-label"
+                        value={customListName}
+                        onChange={handleSelectCustomChange}
+                        label="Your Customs"
+                    >
+                    {customMenuItems}
+                    </Select>
+                </FormControl>
+            )}
+            {(wordSource !== "random" && props.user == null &&
+                <div>must be signed in to user custom words</div>
             )}
         </div>
     );
