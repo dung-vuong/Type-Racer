@@ -34,9 +34,13 @@ const StatsSchema = new mongoose.Schema({
     type: Number,
     required: false,
   },
-  user_id: {
-    type: mongoose.Schema.Types.ObjectId, // the user that this stats belongs to
-    ref: 'User',
+  // user_id: {
+  //   type: mongoose.Schema.Types.ObjectId, // the user that this stats belongs to
+  //   ref: 'User',
+  //   required: true,
+  // },
+  user_email:{
+    type: String,
     required: true,
   },
   gamemodeID:{
