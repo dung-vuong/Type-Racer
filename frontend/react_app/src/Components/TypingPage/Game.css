@@ -1,0 +1,25 @@
+.game {
+    text-align: center;
+    margin-top: 5rem;
+}
+
+.gameInput {
+    background-color: transparent;
+    position: absolute;
+    outline: none;
+    font-size: 2em;
+    border: none;
+    caret-color: transparent;
+    cursor: default;
+}
+
+.wordsDisplay {
+    margin-right: 12%;
+    margin-left: 12%;
+    background-color: beige;
+    padding: 1rem;
+    border-radius: 2rem;
+    border-color: black;
+    border-style: solid;
+    border-width: 0.125rem;
+}
