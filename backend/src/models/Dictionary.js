@@ -10,7 +10,7 @@ const DictionarySchema = new mongoose.Schema({
     required: true,
   },
   allWords: {
-    type: String,
+    type: Array,
     required: true,
   },
   createdBy: {
