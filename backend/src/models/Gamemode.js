@@ -7,14 +7,18 @@ const GamemodeSchema = new mongoose.Schema({
   // 4: 30 words
   // 5: 60 words
   // 6: 120 words
-  gamemode: {
-    type: int,
+  gamemodeID: {
+    type: Number,
     required: true,
   },
-  statsID: {
-    type: mongoose.Schema.Types.ObjectId,
+  gamemodeName: {
+    type: String,
     required: true,
   },
+  // statsID: {
+  //   type: mongoose.Schema.Types.ObjectId,
+  //   required: true,
+  // },
 });
 
 const gamemodeModel = mongoose.model("gamemode", GamemodeSchema);

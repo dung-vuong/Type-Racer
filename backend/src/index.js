@@ -11,6 +11,9 @@ const { startDatabase } = require("./database/mongo");
 const { insertAd, getAds } = require("./database/ads");
 const userRoutes = require('./routes/users')
 const authRoutes = require('./routes/auth')
+const leaderRoutes = require('./routes/leaderboard')
+const dictionaryRoutes = require('./routes/dictionary')
+const statsRoutes = require('./routes/stats')
 const fetch = require('node-fetch');
 
 // ---------------- Import The Dependencies ---------------- \\
@@ -56,6 +59,54 @@ app.use("/api/auth", authRoutes)
 // -------------- Routes for Sign Up - Sign In -------------- \\
 
 
+// -------------- Routes for Leaderboard -------------- \\
+app.use("/api/leaderboard", leaderRoutes)
+
+
+// -------------- Routes for Dictionary -------------- \\
+app.use("/api/dictionary", dictionaryRoutes)
+
+
+// -------------- Routes for Stats -------------- \\
+//app.use("/api/stats", statsRoutes)
+const statsModel = require('./models/Stats');
+app.get("/getStats", async (req, res) => {
+    statsModel.find({}, (err, result) => {
+        if(err){
+            res.json(err);
+        } else {
+            res.json(result);
+        }
+    });
+});
+
+app.post("/createStat", async (req, res) => {
+  const stat = req.body;
+  const newStat = new statsModel(stat);
+  await newStat.save();
+  res.json(newStat);
+  //res.json(stat);
+});
+
+app.put("/updateStat", async(req, res) => {
+  const newPercentError = req.body.percentError;
+  const newWordsPerMinute = req.body.wordsPerMinute;
+  const newTimeToComplete = req.body.timeToComplete;
+  const newWordsTyped = req.body.wordsTyped;
+  const _id = req.body._id;
+  try{
+    statsModel.findById(_id, (error, statToUpdate) => {
+      statToUpdate.percentError = newPercentError;
+      statToUpdate.wordsPerMinute = newWordsPerMinute;
+      statToUpdate.timeToComplete = newTimeToComplete;
+      statToUpdate.wordsTyped = newWordsTyped;
+      statToUpdate.save();
+    });
+  } catch(err) {
+    console.log(err);
+  }
+  res.send("updated stat");
+});
 
 
 
@@ -102,9 +153,10 @@ app.get("/random-words", async (req, res) => {
     console.log(words[i].length);
   }
   let count = '{"letters":' + letterCount +'}';
-  res.send({letterCount ,words});
+  res.send({letterCount, words});
 
 });
+
 
 app.listen(3001, () => {
   console.log("listening on port 3001");

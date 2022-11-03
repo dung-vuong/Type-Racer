@@ -1,12 +1,16 @@
 import React from 'react';
-import TimeGame from './TimeGame';
+import Game from './Game';
 import { useState } from 'react';
 import ChooseGame from './ChooseGame';
 
-const TypingPage = ()  => {
+const TypingPage = (props)  => {
     const [gameWords, setGameWords] = useState([]);
     const [gameLetters, setGameLetters] = useState(0);
     const [gameTime, setGameTime] = useState(0);
+    const [gamemode, setGamemode] = useState(null);
+    const [statsAllowed, setStatsAllowed] = useState(true);
+    const [triggerReset, setTriggerReset] = useState(false);
+    const [isGameActive, setIsGameActive] = useState(false);
 
     return (
         <div className='typing-display'>
@@ -14,8 +18,27 @@ const TypingPage = ()  => {
                 setGameWords={setGameWords}
                 setGameLetters={setGameLetters}
                 setGameTime={setGameTime}
+                setGamemode={setGamemode}
+                setStatsAllowed={setStatsAllowed}
+                triggerReset={triggerReset}
+                setTriggerReset={setTriggerReset}
+                isGameActive={isGameActive}
+                user={props.user}
             />
-            <TimeGame words={gameWords} numLetters={gameLetters} time={gameTime}/>
+            {(gamemode != null &&
+                <Game 
+                    words={gameWords} 
+                    numLetters={gameLetters} 
+                    time={gameTime} 
+                    gamemode={gamemode} 
+                    user={props.user}
+                    triggerReset={triggerReset}
+                    statsAllowed={statsAllowed}
+                    setTriggerReset={setTriggerReset}
+                    isGameActive={isGameActive}
+                    setIsGameActive={setIsGameActive}
+                />
+            )}
         </div>
     )
 }

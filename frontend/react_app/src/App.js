@@ -19,7 +19,7 @@ function App() {
 			<Routes>
 				<Route path="/login" exact element={<Login/>}/>
 				<Route path="/signup" exact element={<Signup/>}/>
-				<Route path="/typing" exact element={<TypingPage/>}/>
+				<Route path="/typing" exact element={<TypingPage user={user}/>}/>
 				<Route path="/leaderboard" exact element={<Leaderboard/>}/>
 				<Route path="/" exact element={<LandingPage/>}/>
 			</Routes>
