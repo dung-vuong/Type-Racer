@@ -1,18 +1,18 @@
 import React from 'react'
 import './MembersStyles.css'
-import LinkedIn from '/Users/sanvu/Desktop/CS160Team1/frontend/react_app/src/Components/LandingPage/Members/linkedin.png';
-import Github from '/Users/sanvu/Desktop/CS160Team1/frontend/react_app/src/Components/LandingPage/Members/github.png';
-import san from '/Users/sanvu/Desktop/CS160Team1/frontend/react_app/src/Components/LandingPage/Members/san.png';
-import dung from '/Users/sanvu/Desktop/CS160Team1/frontend/react_app/src/Components/LandingPage/Members/dung.png';
-import jun from '/Users/sanvu/Desktop/CS160Team1/frontend/react_app/src/Components/LandingPage/Members/jun.png';
-import bill from '/Users/sanvu/Desktop/CS160Team1/frontend/react_app/src/Components/LandingPage/Members/bill.png';
-import max from '/Users/sanvu/Desktop/CS160Team1/frontend/react_app/src/Components/LandingPage/Members/max.png';
-import vanessa from '/Users/sanvu/Desktop/CS160Team1/frontend/react_app/src/Components/LandingPage/Members/vanessa.png';
+import LinkedIn from './linkedin.png';
+import Github from './github.png';
+import san from './san.png';
+import dung from './dung.png';
+import jun from './jun.png';
+import bill from './bill.png';
+import max from './max.png';
+import vanessa from './vanessa.png';
 
 
 const Members = () => {
     return (
-        <section>
+        <div class="members">
             <h1>Meet the team.</h1>
             <div class="container">
                 <div class="box">
@@ -90,7 +90,7 @@ const Members = () => {
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
     )
 }
 

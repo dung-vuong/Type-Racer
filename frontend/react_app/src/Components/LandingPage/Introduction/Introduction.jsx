@@ -9,19 +9,17 @@ const Introduction = ()  => {
             <div className='mainIntro'>
                 <header className='introHeader'>
                     <div className='typeAnimation'>
-                        <p>
-                            <TypeAnimation
-                                repeat={Infinity}
-                                wrapper="div"
-                                style={{fontFamily: 'Source Sans Pro'}}
-                                sequence={[
-                                    'So you think you can type?',
-                                    1000,
-                                    'Try it now!',
-                                    500
-                                ]}
-                            /> 
-                        </p> 
+                        <TypeAnimation
+                            repeat={Infinity}
+                            wrapper="div"
+                            style={{fontFamily: 'Source Sans Pro'}}
+                            sequence={[
+                                'So you think you can type?',
+                                1000,
+                                'Try it now!',
+                                500
+                            ]}
+                        /> 
                     </div>
                 </header>
                 <Link to='/typing' style={{textDecoration: 'none'}}>
