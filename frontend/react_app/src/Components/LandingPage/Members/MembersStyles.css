@@ -1,14 +1,14 @@
 /*-----------------------------------MEMBERS STYLING--------------------------------------*/
-h1 {
+.members h1 {
     position: relative;
     color: black;
     text-align: center;
     font-size: 50px;
     font-weight: 200;
+    margin-top: 3em;
 }
 
 .container {
-    position: relative;
     width: 1200px;
     height: 80px;
     margin: 240px auto;
