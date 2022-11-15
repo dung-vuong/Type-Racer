@@ -15,7 +15,7 @@ const Game = (props)  => {
     const [isGameFinished, setIsGameFinished] = useState(false);
     const [isTimerActive, setIsTimerActive] = useState(true);
     const [refreshDisplay, setRefreshDisplay] = useState(false);
-    const [timer, setTimer] = useState('00:00');
+    const [timer, setTimer] = useState('');
     const hiddenInputFocus = useRef(null);
 
     const isGameActive = props.isGameActive;
@@ -230,23 +230,35 @@ const Game = (props)  => {
     }
 
     return (
-        <div className="game">
-            <input className='gameInput' onFocus={handleFocus} onKeyDown={processTextInput} ref={hiddenInputFocus} value="" readOnly></input>
-            {(props.words != null && props.words.length > 0 &&
-                <Button variant="contained" onClick={() => {props.setTriggerReset(true)}}>Restart</Button>
-            )}
-            <GameTimer time = {props.time} gamemode = {props.gamemode} active={isTimerActive} timer={timer} setTimer={setTimer}/>
-            {(props.words != null && props.words.length > 0 && !isGameActive && !isGameFinished &&
-                <div>Click Word Display to Start</div>
-            )}
-            {(props.words != null && props.words.length > 0 &&
-                <div className="wordsDisplay" onMouseUp={startGame}>
-                    {wordList}
+        <div className='gameWrapper'>
+            <div className="game">
+                <input className='gameInput' onFocus={handleFocus} onKeyDown={processTextInput} ref={hiddenInputFocus} value="" readOnly></input>
+                {(props.words != null && props.words.length > 0 &&
+                    <div className='restartWrapper'>
+                        <Button variant="contained" onClick={() => {props.setTriggerReset(true)}}>Restart</Button>
+                    </div>
+                )}
+                <div className='gameTimerWrapper'>
+                    <GameTimer time = {props.time} gamemode = {props.gamemode} active={isTimerActive} timer={timer} setTimer={setTimer}/>
                 </div>
-            )}
-            {(stats != null && isGameFinished &&
-                stats
-            )}
+                {(props.words != null && props.words.length > 0 && !isGameActive && !isGameFinished &&
+                    <div className='startGameWrapper'>
+                        <div>Click Word Display to Start</div>
+                    </div>
+                )}
+                {(props.words != null && props.words.length > 0 &&
+                    <div className='wordDisplayWrapper'>
+                        <div className="wordsDisplay" onMouseUp={startGame}>
+                            {wordList}
+                        </div>
+                    </div>
+                )}
+                {(stats != null && isGameFinished &&
+                    <div className='statsWrapper'>
+                        {stats}
+                    </div>
+                )}
+            </div>
         </div>
     )
 }

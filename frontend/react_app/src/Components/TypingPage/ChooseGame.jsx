@@ -223,7 +223,7 @@ const ChooseGame = (props) => {
                 </FormControl>
             )}
             {(wordSource !== "random" && props.user == null &&
-                <div>must be signed in to user custom words</div>
+                <div className='notSignedInMessage'>must be signed in to use custom words</div>
             )}
         </div>
     );
