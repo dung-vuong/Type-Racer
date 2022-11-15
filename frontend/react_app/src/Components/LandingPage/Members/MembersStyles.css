@@ -1,1 +1,69 @@
 /*-----------------------------------MEMBERS STYLING--------------------------------------*/
+.members h1 {
+    position: relative;
+    color: black;
+    text-align: center;
+    font-size: 50px;
+    font-weight: 200;
+    margin-top: 3em;
+}
+
+.container {
+    width: 1200px;
+    height: 80px;
+    margin: 240px auto;
+}
+
+.container .box {
+    position: relative;
+    width: calc(400px - 30px);
+    height: calc(300px - 10px);
+    background-color: whitesmoke;
+    float: left;
+    margin: 15px;
+    box-sizing: border-box;
+    border-radius: 10px;
+}
+
+.container .box .image {
+    position: absolute;
+    top: 11%;
+    left: 38%;
+    width: 100px;
+    height: 100px;
+}
+
+.container .box h3 {
+    position: relative;
+    top: 40%;
+    text-align: center;
+    color: black;
+    font-size: xx-large;
+    font-weight: 500;
+}
+
+.container .box .content {
+    position: relative;
+    top: 36%;
+    text-align: center;
+    display: flex;
+    align-items: middle;
+    justify-content: center;
+}
+
+.container .box .content .contact {
+    position: relative;
+    width: calc(100px - 20px);
+    height: calc(70px - 20px);
+    float: left;
+}
+
+.container .box .content .contact .icon {
+    width: 50px;
+}
+
+.container .box .content p {
+    color: black;
+    font-size: medium;
+    font-weight: 300;
+}
