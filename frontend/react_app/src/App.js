@@ -8,10 +8,10 @@ import Signup from './Components/Signup/Signup';
 import TypingPage from './Components/TypingPage/TypingPage';
 import NavigationBar from './Components/NavigationBar/NavigationBar';
 import Leaderboard from './Components/Leaderboard/Leaderboard';
+import UserPage from './Components/UserPage/UserPage';
 
 function App() {
     const user = JSON.parse(localStorage.getItem('data'))
-    console.log(user)
 
 	return (
 		<BrowserRouter>
@@ -21,6 +21,7 @@ function App() {
 				<Route path="/signup" exact element={<Signup/>}/>
 				<Route path="/typing" exact element={<TypingPage user={user}/>}/>
 				<Route path="/leaderboard" exact element={<Leaderboard/>}/>
+				<Route path="/user_stats" exact element={<UserPage user={user}/>}/>
 				<Route path="/" exact element={<LandingPage/>}/>
 			</Routes>
 		</BrowserRouter>

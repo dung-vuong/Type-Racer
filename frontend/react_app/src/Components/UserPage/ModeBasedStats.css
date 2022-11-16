@@ -1,0 +1,12 @@
+.gameModeTitle{
+    font-size: 25px;
+    font-weight: 500;
+}
+.userStats{
+    margin-top: 2em;
+    margin-bottom: 4em;
+    margin-left: 10%;
+    height: 285.5px;
+    width: 580px;
+    background-color: rgb(177, 197, 220);
+}
