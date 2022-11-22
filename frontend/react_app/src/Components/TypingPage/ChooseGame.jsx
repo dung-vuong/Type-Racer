@@ -189,6 +189,7 @@ const ChooseGame = (props) => {
                     </Select>
                 </FormControl>
             </div>
+            <br />
             <div>
             <FormControl>
                 <FormLabel id="wordSourceLabel">Type of Words</FormLabel>
@@ -223,7 +224,7 @@ const ChooseGame = (props) => {
                 </FormControl>
             )}
             {(wordSource !== "random" && props.user == null &&
-                <div className='notSignedInMessage'>must be signed in to use custom words</div>
+                <div className='notSignedInMessage'>Must be signed in to use custom words.</div>
             )}
         </div>
     );

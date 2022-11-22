@@ -13,6 +13,10 @@
     cursor: default;
 }
 
+.startGameWrapper{
+    margin: 1rem;
+}
+
 .wordsDisplay {
     margin-right: 12%;
     margin-left: 12%;
