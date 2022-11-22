@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Grid } from '@mui/material';
 import AccountCircleTwoToneIcon from '@mui/icons-material/AccountCircleTwoTone';
 import ModeBasedStats from './ModeBasedStats';
+import UserInfo from './UserInfo';
 
 
 const UserPage = ({user}) => {
@@ -23,6 +24,7 @@ const UserPage = ({user}) => {
             <div className='title'>
                 <AccountCircleTwoToneIcon fontSize='45px'/>
                 <div>&nbsp;&nbsp;User Records&nbsp;&nbsp;</div>
+                <UserInfo user={user}/>
             </div>
             <Grid container alignItems="stretch" spacing={2} >
                 {gameModes.map((gameMode, idx) => (
