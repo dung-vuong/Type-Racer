@@ -27,6 +27,8 @@ const Leaderboard = () => {
                     value={value}
                     label="Game Mode"
                     onChange={handleChange}
+                    wrapper="div"
+                    style={{fontFamily: 'unset', fontSize: 15}}
                 >
                     <MenuItem value={'1'}>Time: 30 seconds</MenuItem>
                     <MenuItem value={'2'}>Time: 1 minute</MenuItem>

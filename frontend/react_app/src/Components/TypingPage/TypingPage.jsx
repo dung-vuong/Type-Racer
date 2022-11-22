@@ -14,30 +14,34 @@ const TypingPage = (props)  => {
 
     return (
         <div className='typing-display'>
-            <ChooseGame 
-                setGameWords={setGameWords}
-                setGameLetters={setGameLetters}
-                setGameTime={setGameTime}
-                setGamemode={setGamemode}
-                setStatsAllowed={setStatsAllowed}
-                triggerReset={triggerReset}
-                setTriggerReset={setTriggerReset}
-                isGameActive={isGameActive}
-                user={props.user}
-            />
-            {(gamemode != null &&
-                <Game 
-                    words={gameWords} 
-                    numLetters={gameLetters} 
-                    time={gameTime} 
-                    gamemode={gamemode} 
-                    user={props.user}
+            <div className='chooseGameWrapper'>
+                <ChooseGame 
+                    setGameWords={setGameWords}
+                    setGameLetters={setGameLetters}
+                    setGameTime={setGameTime}
+                    setGamemode={setGamemode}
+                    setStatsAllowed={setStatsAllowed}
                     triggerReset={triggerReset}
-                    statsAllowed={statsAllowed}
                     setTriggerReset={setTriggerReset}
                     isGameActive={isGameActive}
-                    setIsGameActive={setIsGameActive}
+                    user={props.user}
                 />
+            </div>
+            {(gamemode != null &&
+                <div className='typingGameWrapper'>
+                    <Game 
+                        words={gameWords} 
+                        numLetters={gameLetters} 
+                        time={gameTime} 
+                        gamemode={gamemode} 
+                        user={props.user}
+                        triggerReset={triggerReset}
+                        statsAllowed={statsAllowed}
+                        setTriggerReset={setTriggerReset}
+                        isGameActive={isGameActive}
+                        setIsGameActive={setIsGameActive}
+                    />
+                </div>
             )}
         </div>
     )

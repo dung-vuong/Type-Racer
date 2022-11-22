@@ -39,7 +39,7 @@ const StatsSchema = new mongoose.Schema({
   //   ref: 'User',
   //   required: true,
   // },
-  user_email:{
+  userEmail:{
     type: String,
     required: true,
   },
@@ -51,7 +51,7 @@ const StatsSchema = new mongoose.Schema({
     type: String,
     required: false,
   },
-  gamemode_id: {
+  gamemodeObjId: {
     type: mongoose.Schema.Types.ObjectId, // the gamemode that this  stats belongs to
     //ref: "gamemodeModel",
     required: false,
