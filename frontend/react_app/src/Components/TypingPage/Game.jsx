@@ -126,7 +126,7 @@ const Game = (props)  => {
         error = parseInt(error/(letterStatuses.length - 1) * 100, 10)
         storeStats(wpm, error, props.gamemode, correctWords, timeRemaining);
         return(
-            <StatDisplay 
+            <StatDisplay
                 wpm={wpm}
                 gamemode={props.gamemode}
                 error={error}
@@ -243,7 +243,7 @@ const Game = (props)  => {
                 </div>
                 {(props.words != null && props.words.length > 0 && !isGameActive && !isGameFinished &&
                     <div className='startGameWrapper'>
-                        <div>Click Word Display to Start</div>
+                        <div>Click word display below to start.</div>
                     </div>
                 )}
                 {(props.words != null && props.words.length > 0 &&
