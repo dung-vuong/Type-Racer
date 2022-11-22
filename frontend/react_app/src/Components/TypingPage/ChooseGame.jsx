@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useMemo } from 'react';
-import { Select, MenuItem, FormControl, InputLabel, FormControlLabel, RadioGroup, Radio, FormLabel } from '@mui/material';
+import { Select, MenuItem, FormControl, InputLabel, FormControlLabel, RadioGroup, Radio, FormLabel, Typography } from '@mui/material';
 import "./ChooseGame.css"
 
 const ChooseGame = (props) => {
@@ -168,6 +168,8 @@ const ChooseGame = (props) => {
                         value={timeMode}
                         onChange={handleTimeChange}
                         label="Time"
+                        wrapper="div"
+                            style={{fontFamily: 'unset', fontSize: 15}}
                     >
                         <MenuItem value={30}>30 Seconds</MenuItem>
                         <MenuItem value={60}>1 Minute</MenuItem>
@@ -182,6 +184,8 @@ const ChooseGame = (props) => {
                         value={wordMode}
                         onChange={handleWordChange}
                         label="Words"
+                        wrapper="div"
+                            style={{fontFamily: 'unset', fontSize: 15}}
                     >
                         <MenuItem value={30}>30 Words</MenuItem>
                         <MenuItem value={60}>60 Words</MenuItem>
@@ -201,9 +205,9 @@ const ChooseGame = (props) => {
                     onChange={handleSourceChange}
                     row
                 >
-                    <FormControlLabel value="random" control={<Radio size="small"/>} label="Random" />
-                    <FormControlLabel value="upload" control={<Radio size="small"/>} label="Upload Custom" />
-                    <FormControlLabel value="select" control={<Radio size="small"/>} label="Select Custom" />
+                    <FormControlLabel value="random" control={<Radio size="small"/>} label={<Typography fontFamily='unset'>Random</Typography>}/>
+                    <FormControlLabel value="upload" control={<Radio size="small"/>} label={<Typography fontFamily='unset'>Upload Custom</Typography>}/>
+                    <FormControlLabel value="select" control={<Radio size="small"/>} label={<Typography fontFamily='unset'>Select Custom</Typography>}/>
                 </RadioGroup>
             </FormControl>
             </div>
