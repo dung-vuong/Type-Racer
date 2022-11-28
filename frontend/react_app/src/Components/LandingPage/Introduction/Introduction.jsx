@@ -12,7 +12,7 @@ const Introduction = ()  => {
                         <TypeAnimation
                             repeat={Infinity}
                             wrapper="div"
-                            style={{fontFamily: 'Source Sans Pro'}}
+                            style={{fontFamily: 'unset', fontSize: 50}}
                             sequence={[
                                 'So you think you can type?',
                                 1000,
@@ -28,7 +28,8 @@ const Introduction = ()  => {
                     </div>
                 </Link>
                 <div>
-                    <p className='productIntro'>TyreRacer is a customizable typing test, 
+                    <p className='productIntro'>
+                        TyreRacer is a customizable typing test, 
                         featuring various typing modes and abilities 
                         for you to upload your own list of words. 
                         Test your typing skills and see where you 

@@ -1,10 +1,11 @@
 import React from 'react'
 import "./NavigationBarStyles.css";
-import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle } from '@mui/material';
+import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, IconButton } from '@mui/material';
 import { Link, useNavigate } from "react-router-dom";
 import SensorOccupiedIcon from '@mui/icons-material/SensorOccupied';
 import LoginIcon from '@mui/icons-material/Login';
 import LogoutIcon from '@mui/icons-material/Logout';
+import ContactsIcon from '@mui/icons-material/Contacts';
 
 const NavigationBar = ({user}) => {
     const [open, setOpen] = React.useState(false);
@@ -66,6 +67,14 @@ const NavigationBar = ({user}) => {
                                 </>
                             }
                         </li>
+                        {user && 
+                            <IconButton
+                                style={{margin: "0 10px 5px 0", color: "aliceblue"}}
+                                component={Link}
+                                to='/user_stats'>
+                                <ContactsIcon/>
+                            </IconButton>
+                        }
                     </ul>
                 </div>
                 <Dialog
