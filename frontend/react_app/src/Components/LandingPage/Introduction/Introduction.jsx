@@ -29,7 +29,7 @@ const Introduction = ()  => {
                 </Link>
                 <div>
                     <p className='productIntro'>
-                        TyreRacer is a customizable typing test, 
+                        TypeRacer is a customizable typing test, 
                         featuring various typing modes and abilities 
                         for you to upload your own list of words. 
                         Test your typing skills and see where you 
