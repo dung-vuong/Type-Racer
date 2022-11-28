@@ -27,6 +27,7 @@ const Game = (props)  => {
         }
         let letterNum = 0;
         let wordNum = 0;
+        let curWord = 0;
         const tempWordList = [];
         const tempLetterList = [];
         props.words.forEach((word) => {
@@ -34,6 +35,9 @@ const Game = (props)  => {
             const letterList = [];
             for (let j = 0; j < word.length; j++) {
                 tempLetterList.push(word[j]);
+                if(letterPosition === letterNum){
+                    curWord = parseInt(wordNum / 30, 10);
+                }
                 letterList.push(
                     <TypingGameLetter 
                         status={letterPosition === letterNum ? letterStatuses[letterNum] + '-active': letterStatuses[letterNum]}
@@ -43,11 +47,20 @@ const Game = (props)  => {
                 );
                 letterNum++;
             }
+            if(wordNum === (((curWord + 1) * 30) - 1) && (wordNum + 1) !== props.words.length){
+                letterList.push(
+                    <TypingGameLetter 
+                        status={'default'}
+                        letter={'--->'} 
+                        key={-1}
+                    />
+                );
+            }
             tempWordList.push(<TypingGameWord letters={letterList} key={wordNum}/>);
             wordNum++;
         });
         setLetterList(tempLetterList);
-        return tempWordList;
+        return tempWordList.slice((curWord * 30), ((curWord + 1) * 30));
         }, [letterPosition, props.words, refreshDisplay]
     );
 
@@ -57,7 +70,7 @@ const Game = (props)  => {
         const statData = {
             "wordsPerMinute" : wpm,
             "percentError" : error,
-            "user_email" : props.user.data["email"],
+            "userEmail" : props.user.data["email"],
         };
         let gmID = 0;
         if(gamemode === "time"){
@@ -203,11 +216,17 @@ const Game = (props)  => {
     };
 
     const startGame = () => {
-        setIsGameActive(true);
+        if(isGameActive && !isGameFinished){
+            setHiddenInputFocus();
+        }
+        if(!isGameFinished){
+            setIsGameActive(true);
+        }
     };
 
     const processTextInput = (e) => {
         if(e.key === "Shift"){
+            setLetterPosition(550);
             return;
         }
         if(e.key === letterList[letterPosition]){

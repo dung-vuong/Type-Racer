@@ -31,11 +31,11 @@ const ChooseGame = (props) => {
         if(timeMode !== ""){
             switch(timeMode){
                 case(30):
-                    return 125;
-                case(60):
                     return 250;
+                case(60):
+                    return 500;
                 case(120):
-                    return 450;
+                    return 1000;
                 default:
                     return 0;
             }
@@ -85,9 +85,6 @@ const ChooseGame = (props) => {
         props.setStatsAllowed(false);
         if(event.target.value === "select"){
             getUserCustoms();
-        }
-        else{
-            //something maybe
         }
     };
 
