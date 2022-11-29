@@ -5,7 +5,7 @@
     margin-top: 1.5rem;
     margin-right: 12%;
     margin-left: 12%;
-    background-color: beige;
+    background-color: rgb(222, 229, 247);
     padding: 1.5rem;
     border-radius: 2rem;
     border-color: black;
@@ -30,4 +30,3 @@
     font-weight: 300;
     color: red;
 }
-
