@@ -70,7 +70,7 @@ const Game = (props)  => {
         const statData = {
             "wordsPerMinute" : wpm,
             "percentError" : error,
-            "userEmail" : props.user.data["email"],
+            "user_email" : props.user.data["email"],
         };
         let gmID = 0;
         if(gamemode === "time"){
