@@ -19,7 +19,7 @@
     font-size: large;
 }
 
-.startGameWrapper{
+.startGameWrapper {
     margin: 1rem;
     font-weight: 300;
 }
@@ -27,7 +27,7 @@
 .wordsDisplay {
     margin-right: 12%;
     margin-left: 12%;
-    background-color: beige;
+    background-color: rgb(222, 229, 247);
     padding: 1rem;
     border-radius: 2rem;
     border-color: black;
