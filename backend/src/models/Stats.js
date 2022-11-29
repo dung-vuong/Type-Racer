@@ -39,7 +39,7 @@ const StatsSchema = new mongoose.Schema({
   //   ref: 'User',
   //   required: true,
   // },
-  userEmail:{
+  user_email:{
     type: String,
     required: true,
   },
