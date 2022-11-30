@@ -2,12 +2,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@200&family=Source+Sans+Pro:ital,wght@1,600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Abyssinica+SIL&display=swap');
 
-.mainIntro{
+.mainIntro {
     text-align: center;
 }
 
-.introHeader{
-   
+.introHeader {
+
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -15,7 +15,7 @@
     color: black;
 }
 
-.typeAnimation{
+.typeAnimation {
     font-family: Source Sans Pro;
     font-size: 3em;
     display: flex;
@@ -25,14 +25,14 @@
     margin-top: 60px;
 }
 
-.start{
+.start {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-weight: 400;
     cursor: pointer;
     color: black;
 }
 
-.start-container{
+.start-container {
     padding-left: 3em;
     padding-right: 3em;
     display: flex;
@@ -45,15 +45,15 @@
     margin-top: 50px;
     border: solid gray;
     border-radius: 25px;
-    background-color: rgb(247, 234, 218);
+    background-color: rgb(222, 229, 247);
 }
 
-.start-container:hover{
+.start-container:hover {
     box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
     cursor: pointer;
 }
 
-.productIntro{
+.productIntro {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-weight: 400;
     font-size: x-large;
