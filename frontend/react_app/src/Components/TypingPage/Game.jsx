@@ -226,7 +226,6 @@ const Game = (props)  => {
 
     const processTextInput = (e) => {
         if(e.key === "Shift"){
-            setLetterPosition(550);
             return;
         }
         if(e.key === letterList[letterPosition]){
