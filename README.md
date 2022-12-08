@@ -6,8 +6,8 @@
 
 ## ⬇️ What I have done ⬇️
 ### The following features included:
-- Created responsive Game Memories App using React, Redux, MUI Library
-- Connect with MongoDB and use Node.js for backend
-- Login with Email (JWT) and Google OAuth Authentication
+- Created a Typing App using React, Node.js, Express.js, and MongoDB (MERN Stack).
+- Login / Signup with Email (JWT) && Hashing password / Strengthen password (JOI).
+- Leaderboard / User Records (Using tables with sorting features - MUI)
 
 ## ⬇️ Demo Run ⬇️ 
