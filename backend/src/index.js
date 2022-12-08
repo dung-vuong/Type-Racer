@@ -7,12 +7,9 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const helmet = require("helmet");
 const morgan = require("morgan");
-const { startDatabase } = require("./database/mongo");
-const { insertAd, getAds } = require("./database/ads");
 const userRoutes = require('./routes/users')
 const authRoutes = require('./routes/auth')
 const dictionaryRoutes = require('./routes/dictionary')
-const statsRoutes = require('./routes/stats')
 const fetch = require('node-fetch');
 
 // ---------------- Import The Dependencies ---------------- \\
