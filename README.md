@@ -1,5 +1,5 @@
 # Type Racer
-## Try it now: {Link}
+## Backend now requires subscription to host :(
 
 ![Screenshot (529)](https://user-images.githubusercontent.com/79184498/206333204-ba3e57f3-08c5-47a6-961e-5bdd6e4ae4b6.png)
 
