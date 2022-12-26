@@ -10,5 +10,8 @@
 - Login / Signup with Email (JWT) && Hashing password / Strengthen password (JOI).
 - Leaderboard / User Records (Using tables with sorting features - MUI)
 
+
 ## ⬇️ Demo Run ⬇️ 
-{Video}
+https://user-images.githubusercontent.com/79184498/209582286-4f863623-906f-4cf7-9db8-6c889f4cd689.mp4
+
+
